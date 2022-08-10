@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Form } from '../../styles/Forms.styled.components.js'
 
 export default function UserForm({ setPreLoginForms }) {
   const [name, setName] = useState("");
@@ -26,7 +27,7 @@ export default function UserForm({ setPreLoginForms }) {
   };
   return (
     <div>
-      <form
+      <Form
         onSubmit={(event) => {
           window.alert("Account Made!");
           handleSubmit(event);
@@ -42,7 +43,7 @@ export default function UserForm({ setPreLoginForms }) {
           />
         </div>
         <div>
-          Password:{" "}
+          &nbsp;Password:{" "}
           <input
             type="password"
             value={password}
@@ -51,7 +52,7 @@ export default function UserForm({ setPreLoginForms }) {
           />
         </div>
         <div>
-          Email:{" "}
+          &emsp;&emsp;&nbsp;Email:{" "}
           <input
             type="email"
             value={email}
@@ -59,9 +60,12 @@ export default function UserForm({ setPreLoginForms }) {
             required
           />
         </div>
-        <button type="submit">Submit</button>
-        <button onClick={() => setPreLoginForms("")}>Cancel</button>
-      </form>
+        <div>
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <button type="submit">Submit</button>
+          <button onClick={() => setPreLoginForms("")}>Cancel</button>
+        </div>
+      </Form>
     </div>
   );
 }

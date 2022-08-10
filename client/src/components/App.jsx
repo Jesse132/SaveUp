@@ -5,9 +5,26 @@ import UserForm from './forms/UserForm.jsx';
 import LoginForm from './forms/LoginForm.jsx';
 import EntryForm from './forms/EntryForm.jsx';
 import HomePage from './HomePage.jsx';
+import { Main, Button } from '../styles/Main.styled.components.js';
+import Form from '../styles/Forms.styled.components.js'
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from '../styles/Global.styled.components.js';
+import styled from 'styled-components';
+import { FcMoneyTransfer } from 'react-icons/fc';
+
+const darkTheme = {
+  colors: {
+    header: '#fff',
+    body: '#343434',
+  },
+  fontColor: '#dfe3de'
+};
+
+const ThemeSetter = styled.div`
+  color: ${props => props.theme.fontColor}
+`;
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
   const [userInfo, setUserInfo] = useState({});
 
   const [users, setUsers] = useState([]);
@@ -53,41 +70,55 @@ export default function App() {
 
 
   return (
-    <div>
-      <h2>Current members using the app: {users.length}</h2>
-      {login ? (
-        < div >
-          {postLoginForms === '' ? <HomePage userInfo={userInfo} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
-          {postLoginForms === 'viewTransaction' ? <div>
-            <h2>Your Transactions</h2>
-            <label> Transactions currently sorted by: </label>
-            <select
-              value={sortFilter}
-              onChange={(event) => setSortFilter(event.target.value)}
-            >
-              <option value='newest'>Helpfulness</option>
-              <option value='oldest'>Oldest</option>
-              <option value='transaction amount'>Transaction Amount</option>
-            </select>
-            <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
-          {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
-        </div>
-      ) : (
-        <div>
-          <button
-            onClick={() => { setPreLoginForms('create'); }}> Create an Account </button>
-          <button onClick={() => { setPreLoginForms('login'); }}>Login </button>
-          {preLoginForms === 'create' ? (<UserForm setPreLoginForms={setPreLoginForms} />) : null}
-          {preLoginForms === 'login' ? (
-            <LoginForm
-              setPreLoginForms={setPreLoginForms}
-              setUserInfo={setUserInfo}
-              setLogin={setLogin}
-            />
-          ) : null}
-        </div>
-      )
-      }
-    </div >
+    <ThemeProvider theme={darkTheme}>
+      <ThemeSetter>
+        <GlobalStyles />
+        <Main>
+          {login ? (
+            < div >
+              {postLoginForms === '' ? <HomePage userInfo={userInfo} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
+              {postLoginForms === 'viewTransaction' ? <div>
+                <h2>Your Transactions</h2>
+                <label> Transactions currently sorted by: </label>
+                <select
+                  value={sortFilter}
+                  onChange={(event) => setSortFilter(event.target.value)}
+                >
+                  <option value='newest'>Helpfulness</option>
+                  <option value='oldest'>Oldest</option>
+                  <option value='transaction amount'>Transaction Amount</option>
+                </select>
+                <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
+              {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
+            </div>
+          ) : (
+            <div>
+              <h3>Current members: {users.length}</h3>
+              <div className='container'>
+                <div className='containerBox'>
+                  <h1 className='containerBox'>Let's get started.</h1>
+                </div>
+                <FcMoneyTransfer size={70} className='containerBox' />
+                <Button
+                  onClick={() => { setPreLoginForms('create'); }}
+                  className='containerBox'> Create an Account </Button>
+                <Button onClick={() => { setPreLoginForms('login'); }}
+                  className='containerBox'>Login </Button>
+                <div>
+                  {preLoginForms === 'create' ? (<UserForm setPreLoginForms={setPreLoginForms} />) : null}
+                  {preLoginForms === 'login' ? (
+                    <LoginForm
+                      setPreLoginForms={setPreLoginForms}
+                      setUserInfo={setUserInfo}
+                      setLogin={setLogin}
+                    />
+                  ) : null}</div>
+              </div>
+            </div>
+          )
+          }
+        </Main>
+      </ThemeSetter>
+    </ThemeProvider >
   );
 }

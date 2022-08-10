@@ -45,15 +45,17 @@ export default function LoginForm({ setPreLoginForms, setUserInfo, setLogin }) {
             required />
         </div>
         <div>
-          Password:{" "}
+          &nbsp;Password:{" "}
           <input
             type="password"
             value={password}
             onChange={(event) => handleChange(event, setPassword)}
             required />
         </div>
-        <button type="submit">Login</button>
-        <button onClick={() => setPreLoginForms("")}>Cancel</button>
+        <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;
+          <button type="submit">Login</button>
+          <button onClick={() => setPreLoginForms("")}>Cancel</button>
+        </div>
       </form>
       <button>Forgot Username?</button>
       <button>Forgot Password?</button>
