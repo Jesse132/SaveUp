@@ -42,7 +42,7 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
           value={amount}
           onChange={event => handleChange(event, setAmount)}
           required /></div>
-        <div className='containerBox'>Type of Transaction</div>
+        <b className='containerBox'>Type of Transaction</b>
         <div className='containerRow'>
           <div style={{ padding: '0px 50px 0px 0px' }}>
             <div>Income</div>

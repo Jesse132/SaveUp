@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Work } from '../styles/Main.styled.components.js';
 
-export default function WorkEntry({ work }) {
+export default function WorkEntry({ work, setWorkList, setViewInfo }) {
 
   let date = new Date(work.date);
   let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -12,10 +13,11 @@ export default function WorkEntry({ work }) {
 
 
   return (
-    <div onClick={e => popUp(e)}>
-      <h3>{work.work} for ${work.payment}</h3>
-      <div>- {work.requestor}, {displayedDate}</div>
-    </div>
+    <Work onClick={() => setViewInfo(work)}>
+      <div>{work.work} for ${work.payment}</div>
+      <small>- {work.requestor}, {displayedDate}</small>
+    </Work>
+
   )
 
 }

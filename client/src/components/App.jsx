@@ -89,7 +89,7 @@ export default function App() {
               {postLoginForms === 'viewTransaction' ? <div>
                 <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
               {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
-              {postLoginForms === 'work' ? <WorkManager workList={workList} setWorkList={setWorkList} setPostLoginForms={setPostLoginForms} /> : null}
+              {postLoginForms === 'work' ? <WorkManager workList={workList} setWorkList={setWorkList} setPostLoginForms={setPostLoginForms} userID={userInfo._id} /> : null}
             </div>
           ) : (
             <div>

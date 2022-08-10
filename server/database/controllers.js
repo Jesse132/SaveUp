@@ -70,3 +70,12 @@ exports.getWork = (req, res) => {
     .then(data => res.status(200).send(data))
     .catch(err => res.status(500).send(err))
 }
+
+exports.putWork = (req, res) => {
+  return Work.findByIdAndUpdate(req.body._id, { worker: req.body.worker }).exec()
+    .then(() => {
+      return Work.find({ requestorID: { $ne: req.body._id }, worker: { $eq: '' } })
+        .then(data => res.status(200).send(data))
+    })
+    .catch(err => res.status(500).send(err))
+}

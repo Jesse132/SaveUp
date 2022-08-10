@@ -24,7 +24,7 @@ const workSchema = new mongoose.Schema({
   payment: Number,
   requestor: String,
   requestorID: String,
-  Contact: String,
+  contact: String,
   worker: String,
   date: Date
 })
