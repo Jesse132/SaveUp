@@ -22,6 +22,13 @@ module.exports = {
         use: {
           loader: 'url-loader'
         }
+      },
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          import: true,
+        }
       }
     ]
   },

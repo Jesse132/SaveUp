@@ -15,11 +15,10 @@ export default function Entry({ entry }) {
   return (
     <div>
       <b>{entry.item} </b>
-      <label>-{entry.description} </label>
-      <label>${entry.amount} </label>
-      <label>Posted on: {getDate()} </label>
-      <button >Edit</button>
-      <button >Delete</button>
+      {entry.amount > 0 ?
+        <label style={{ color: '#32a83c' }} >${entry.amount.toLocaleString()} </label>
+        : <label style={{ color: 'red' }} >${entry.amount.toLocaleString()} </label>}
+      <label> - {getDate()} </label>
     </div>
   )
 }

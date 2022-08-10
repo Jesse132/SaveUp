@@ -6,7 +6,6 @@ import LoginForm from './forms/LoginForm.jsx';
 import EntryForm from './forms/EntryForm.jsx';
 import HomePage from './HomePage.jsx';
 import { Main, Button } from '../styles/Main.styled.components.js';
-import Form from '../styles/Forms.styled.components.js'
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/Global.styled.components.js';
 import styled from 'styled-components';
@@ -33,7 +32,6 @@ export default function App() {
 
   const [entryList, setEntryList] = useState([]);
   const [entryUpdate, setEntryUpdate] = useState(false);
-  const [sortFilter, setSortFilter] = useState('');
   const [postLoginForms, setPostLoginForms] = useState('');
 
   //Retrieves userList from database - can change to API
@@ -78,16 +76,6 @@ export default function App() {
             < div >
               {postLoginForms === '' ? <HomePage userInfo={userInfo} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
               {postLoginForms === 'viewTransaction' ? <div>
-                <h2>Your Transactions</h2>
-                <label> Transactions currently sorted by: </label>
-                <select
-                  value={sortFilter}
-                  onChange={(event) => setSortFilter(event.target.value)}
-                >
-                  <option value='newest'>Helpfulness</option>
-                  <option value='oldest'>Oldest</option>
-                  <option value='transaction amount'>Transaction Amount</option>
-                </select>
                 <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
               {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
             </div>
