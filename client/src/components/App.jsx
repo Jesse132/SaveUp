@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/Global.styled.components.js';
 import styled from 'styled-components';
 import { FcMoneyTransfer } from 'react-icons/fc';
-// import Map from './Map.jsx';
+import Map from './Map.jsx';
 
 const darkTheme = {
   colors: {
