@@ -22,15 +22,16 @@ export default function UserForm({ setPreLoginForms }) {
         balance: 0,
         email: email,
       })
-      .then(() => setPreLoginForms(""))
+      .then(() => console.log('account made'))
       .catch((err) => console.log(err));
   };
   return (
     <div>
       <Form
         onSubmit={(event) => {
-          window.alert("Account Made!");
+          window.alert("Account Made.");
           handleSubmit(event);
+          setPreLoginForms("");
         }}
       >
         <div>

@@ -33,7 +33,7 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
     <EntryView>
       <Form className='container' onSubmit={event => { handleSubmit(event); setPostLoginForms(''); setEntryUpdate(!entryUpdate) }} >
         <h2 className='containerBox'>Enter your transaction here.</h2>
-        <div className='containerBox'>&emsp;&emsp;&ensp;Entry: <input
+        <div className='containerBox'>&emsp;&emsp;&ensp;Activity: <input
           type='text'
           value={entry}
           onChange={event => handleChange(event, setEntry)}

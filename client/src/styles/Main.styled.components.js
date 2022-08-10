@@ -31,7 +31,7 @@ body {
   justify-content:center;
   flex-direction: column;
   width: 100%;
-  height: 20em;
+  height: 40em;
   position: absolute;
 }
 .containerBox {

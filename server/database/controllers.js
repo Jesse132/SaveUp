@@ -11,7 +11,7 @@ exports.getUsers = (req, res) => {
 
 exports.createUser = (req, res) => {
   return Users.create(req.body)
-    .then(() => { res.status(201); console.log('User created') })
+    .then(() => { res.sendStatus(201) })
     .catch(err => res.status(500).send(err))
 }
 

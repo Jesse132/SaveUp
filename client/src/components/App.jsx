@@ -10,6 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/Global.styled.components.js';
 import styled from 'styled-components';
 import { FcMoneyTransfer } from 'react-icons/fc';
+// import Map from './Map.jsx';
 
 const darkTheme = {
   colors: {
@@ -65,8 +66,6 @@ export default function App() {
     login ? getEntries() : null
   }, [login, entryUpdate])
 
-
-
   return (
     <ThemeProvider theme={darkTheme}>
       <ThemeSetter>
@@ -78,6 +77,7 @@ export default function App() {
               {postLoginForms === 'viewTransaction' ? <div>
                 <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
               {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
+              {postLoginForms === 'map' ? <Map /> : null}
             </div>
           ) : (
             <div>

@@ -13,7 +13,7 @@ export default function Entry({ entry }) {
   };
 
   return (
-    <div>
+    <div onClick={e => popUp(e)}>
       <b>{entry.item} </b>
       {entry.amount > 0 ?
         <label style={{ color: '#32a83c' }} >${entry.amount.toLocaleString()} </label>
