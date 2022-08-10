@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Form } from '../../styles/Forms.styled.components.js'
-import { EntryView, Button } from '../../styles/Main.styled.components.js';
+import { EntryView, Button, CancelButton } from '../../styles/Main.styled.components.js';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
@@ -56,7 +56,7 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
           </div>
         </div>
         <Button className='containerBox' type='submit'>Submit</Button>
-        <Button className='containerBox' onClick={() => setPostLoginForms('')}>Cancel</Button>
+        <CancelButton className='containerBox' onClick={() => setPostLoginForms('')}>Cancel</CancelButton>
       </Form >
     </EntryView >
   )

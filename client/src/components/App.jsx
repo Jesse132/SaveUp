@@ -11,6 +11,7 @@ import { GlobalStyles } from '../styles/Global.styled.components.js';
 import styled from 'styled-components';
 import { FcMoneyTransfer } from 'react-icons/fc';
 import WorkManager from './WorkManager.jsx';
+import WorkForm from './forms/WorkForm.jsx';
 
 const darkTheme = {
   colors: {
@@ -36,6 +37,7 @@ export default function App() {
   const [postLoginForms, setPostLoginForms] = useState('');
 
   const [workList, setWorkList] = useState([]);
+  const [workUpdate, setWorkUpdate] = useState(false);
 
   //Retrieves userList from database - can change to API
   let getUsers = () => {
@@ -76,7 +78,7 @@ export default function App() {
     if (login) {
       getEntries(); getWork();
     }
-  }, [login, entryUpdate])
+  }, [login, entryUpdate, workUpdate])
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -90,6 +92,7 @@ export default function App() {
                 <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
               {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
               {postLoginForms === 'work' ? <WorkManager workList={workList} setWorkList={setWorkList} setPostLoginForms={setPostLoginForms} userID={userInfo._id} /> : null}
+              {postLoginForms === 'addWork' ? <WorkForm setPostLoginForms={setPostLoginForms} userInfo={userInfo} workUpdate={workUpdate} setWorkUpdate={setWorkUpdate} /> : null}
             </div>
           ) : (
             <div>

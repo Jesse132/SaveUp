@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { AccountView, Button } from '../styles/Main.styled.components.js';
-import Circle from './Circle/Circle.js'
 import axios from 'axios';
 
 export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
@@ -30,7 +29,6 @@ export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
         <b className='containerBox'> Your current balance is:</b>
         <h1 style={{ color: '#32a83c' }}><strong>${userInfo.balance.toLocaleString()}</strong></h1>
         <h3 style={{ color: '#ff6f00' }}>{userInfo.goal ? `Current Goal: $${userInfo.goal.toLocaleString()}` : null}</h3>
-        {/* <div>{Circle}</div> */}
         <div className='containerBox'> {userInfo.goal ? `You've reached ${goalPercent}% of your goal so far.`
           : <div className='containerBox'>
             <div> Set a savings Goal. </div>

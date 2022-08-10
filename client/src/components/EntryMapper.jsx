@@ -8,9 +8,9 @@ export default function EntryMapper({ entryList, setPostLoginForms }) {
   return (
     <TransactionView>
       <div className='container'>
-        <h2>Your Transactions</h2>
+        <h2 className='containerBox'>Your Transactions</h2>
         <label> Transactions currently sorted by: </label>
-        <select
+        <select className='containerBox'
           value={sortFilter}
           onChange={(e) => setSortFilter(e.target.value)}>
           <option value='relevance'>Relevance</option>

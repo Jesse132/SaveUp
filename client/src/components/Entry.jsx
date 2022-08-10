@@ -11,7 +11,7 @@ export default function Entry({ entry }) {
   let displayedDate = `${months[date.getMonth().toLocaleString()]} ${date.getDate()}, ${date.getFullYear()}`
 
   return (
-    <div onClick={e => popUp(e)}>
+    <div>
       <b>{entry.description} </b>
       {entry.amount > 0 ?
         <label style={{ color: '#32a83c' }} >${entry.amount.toLocaleString()} </label>
