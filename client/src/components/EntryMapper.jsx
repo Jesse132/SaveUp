@@ -13,12 +13,12 @@ export default function EntryMapper({ entryList, setPostLoginForms }) {
         <select
           value={sortFilter}
           onChange={(e) => setSortFilter(e.target.value)}>
-          <option value='newest'>Helpfulness</option>
-          <option value='oldest'>Oldest</option>
-          <option value='transaction amount'>Transaction Amount</option>
+          <option value='relevance'>Relevance</option>
+          <option value='income'>Income</option>
+          <option value='expense'>Expenses</option>
         </select>
         <Button className='containerBox' onClick={() => setPostLoginForms('')}>Back</Button>
-        <div style={{ padding: '20px 0px 0px 0px' }} className='mapper'>{entryList.map((entry, index) => <Entry entry={entry} key={index} />)}</div>
+        <div style={{ padding: '20px 0px 0px 0px' }} className='mapper'>{entryList.slice().reverse().map((entry, index) => <Entry entry={entry} key={index} />)}</div>
       </div>
     </TransactionView>
   );

@@ -12,14 +12,25 @@ const userSchema = new mongoose.Schema({
 });
 
 const entrySchema = new mongoose.Schema({
-  item: String,
   description: String,
   amount: Number,
   owner: String,
   date: Date
 })
 
+const workSchema = new mongoose.Schema({
+  work: String,
+  description: String,
+  payment: Number,
+  requestor: String,
+  requestorID: String,
+  Contact: String,
+  worker: String,
+  date: Date
+})
+
 var Users = mongoose.model('Users', userSchema);
 var Entries = mongoose.model('Entries', entrySchema);
+var Work = mongoose.model('Work', workSchema);
 
-module.exports = { Users, Entries }
+module.exports = { Users, Entries, Work }

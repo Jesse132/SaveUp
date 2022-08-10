@@ -19,7 +19,6 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
     event.preventDefault();
     let date = new Date();
     axios.post('/entries', {
-      item: entry,
       description: description,
       amount: amount,
       owner: userID,
@@ -33,11 +32,6 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
     <EntryView>
       <Form className='container' onSubmit={event => { handleSubmit(event); setPostLoginForms(''); setEntryUpdate(!entryUpdate) }} >
         <h2 className='containerBox'>Enter your transaction here.</h2>
-        <div className='containerBox'>&emsp;&emsp;&ensp;Activity: <input
-          type='text'
-          value={entry}
-          onChange={event => handleChange(event, setEntry)}
-          required /></div>
         <div className='containerBox'>Description: <input
           type='text'
           value={description}

@@ -1,7 +1,7 @@
 {
   "name": "saveup",
   "version": "1.0.0",
-  "description": "//Have a user login //Have a user balance //Allow user to reload their balance //Allow user to spend money //bought items are removed from the marketplace and added to their collections",
+  "description": "A money managing app where users can also post and find work",
   "main": ".eslintrc.js",
   "devDependencies": {
     "@babel/cli": "^7.18.10",

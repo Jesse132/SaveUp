@@ -44,7 +44,7 @@ export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
         </div>
         <Button className='containerBox' onClick={() => { setPostLoginForms('transaction'); }}>Add transactions</Button>
         <Button className='containerBox' onClick={() => { setPostLoginForms('viewTransaction'); }}>See transactions</Button>
-        <Button className='containerBox' onClick={() => { setPostLoginForms('map'); }}>Look for work</Button>
+        <Button className='containerBox' onClick={() => { setPostLoginForms('work'); }}>Look for work</Button>
       </div>
     </AccountView >
   );

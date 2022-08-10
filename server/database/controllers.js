@@ -1,8 +1,9 @@
 /* eslint-disable no-unreachable */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-const { Users, Entries } = require('./db.js');
+const { Users, Entries, Work } = require('./db.js');
 
+//Users
 exports.getUsers = (req, res) => {
   return Users.find({}).exec()
     .then(data => res.status(200).send(data))
@@ -41,6 +42,7 @@ exports.addGoal = (req, res) => {
     .catch(err => res.status(500).send(err))
 }
 
+//Entries
 exports.getEntries = (req, res) => {
   return Entries.find({ owner: req.query.owner }).exec()
     .then(data => res.status(200).send(data))
@@ -56,3 +58,15 @@ exports.createEntry = (req, res) => {
     .catch(err => res.status(500).send(err))
 }
 
+//Work
+exports.createWork = (req, res) => {
+  return Work.create(req.body)
+    .then(() => res.sendStatus(201))
+    .catch((err) => res.status(500))
+}
+
+exports.getWork = (req, res) => {
+  return Work.find({ requestorID: { $ne: req.query._id }, worker: { $eq: '' } })
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(500).send(err))
+}

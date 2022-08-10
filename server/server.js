@@ -22,6 +22,9 @@ router.put('/userGoal', controllers.addGoal);
 //entries
 router.get('/entries', controllers.getEntries);
 router.post('/entries', controllers.createEntry);
+//work
+router.get('/work', controllers.getWork);
+router.post('/work', controllers.createWork);
 
 app.listen(3000);
 console.log('Server listening at http://localhost:3000');

@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/Global.styled.components.js';
 import styled from 'styled-components';
 import { FcMoneyTransfer } from 'react-icons/fc';
-import Map from './Map.jsx';
+import WorkManager from './WorkManager.jsx';
 
 const darkTheme = {
   colors: {
@@ -35,6 +35,8 @@ export default function App() {
   const [entryUpdate, setEntryUpdate] = useState(false);
   const [postLoginForms, setPostLoginForms] = useState('');
 
+  const [workList, setWorkList] = useState([]);
+
   //Retrieves userList from database - can change to API
   let getUsers = () => {
     axios
@@ -45,11 +47,19 @@ export default function App() {
       .catch((err) => console.log(err));
   };
 
-  //Retreives productList from database - can change to API
+  //Retreives productList from database
   let getEntries = () => {
     axios
       .get('/entries', { params: { owner: userInfo._id } })
       .then((results) => setEntryList(results.data))
+      .catch((err) => console.log(err));
+  };
+
+  //Retreives workList from database
+  let getWork = () => {
+    axios
+      .get('/work', { params: { _id: userInfo._id } })
+      .then((results) => setWorkList(results.data))
       .catch((err) => console.log(err));
   };
 
@@ -63,7 +73,9 @@ export default function App() {
   }, [users]);
 
   useEffect(() => {
-    login ? getEntries() : null
+    if (login) {
+      getEntries(); getWork();
+    }
   }, [login, entryUpdate])
 
   return (
@@ -77,7 +89,7 @@ export default function App() {
               {postLoginForms === 'viewTransaction' ? <div>
                 <EntryMapper entryList={entryList} userInfo={userInfo} setPostLoginForms={setPostLoginForms} /></div> : null}
               {postLoginForms === 'transaction' ? <EntryForm entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} userID={userInfo._id} setPostLoginForms={setPostLoginForms} setUserInfo={setUserInfo} /> : null}
-              {postLoginForms === 'map' ? <Map /> : null}
+              {postLoginForms === 'work' ? <WorkManager workList={workList} setWorkList={setWorkList} setPostLoginForms={setPostLoginForms} /> : null}
             </div>
           ) : (
             <div>
