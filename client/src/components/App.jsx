@@ -1,3 +1,8 @@
+import { Main, Button } from '../styles/Main.styled.components.js';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from '../styles/Global.styled.components.js';
+import { FcMoneyTransfer } from 'react-icons/fc';
+import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EntryMapper from './EntryMapper.jsx';
@@ -5,11 +10,6 @@ import UserForm from './forms/UserForm.jsx';
 import LoginForm from './forms/LoginForm.jsx';
 import EntryForm from './forms/EntryForm.jsx';
 import HomePage from './HomePage.jsx';
-import { Main, Button } from '../styles/Main.styled.components.js';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from '../styles/Global.styled.components.js';
-import styled from 'styled-components';
-import { FcMoneyTransfer } from 'react-icons/fc';
 import WorkManager from './WorkManager.jsx';
 import WorkForm from './forms/WorkForm.jsx';
 

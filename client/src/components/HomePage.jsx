@@ -1,8 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react';
 import { AccountView, Button } from '../styles/Main.styled.components.js';
 import { useSpring, animated, config } from 'react-spring'
+import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 

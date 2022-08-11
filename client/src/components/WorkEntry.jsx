@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Work } from '../styles/Main.styled.components.js';
+import React, { useState, useEffect } from 'react';
 
 export default function WorkEntry({ work, setWorkList, setViewInfo }) {
 

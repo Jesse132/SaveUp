@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import { TransactionView, Button } from '../styles/Main.styled.components.js';
 import { useState } from 'react';
 import Entry from './Entry.jsx'
-import { TransactionView, Button } from '../styles/Main.styled.components.js';
 
 export default function EntryMapper({ entryList, userID, setUserInfo, setPostLoginForms, entryUpdate, setEntryUpdate }) {
   const [sortFilter, setSortFilter] = useState('');

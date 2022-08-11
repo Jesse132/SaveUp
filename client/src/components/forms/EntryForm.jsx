@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Form } from '../../styles/Forms.styled.components.js'
 import { EntryView, Button, CancelButton } from '../../styles/Main.styled.components.js';
+import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GiPayMoney, GiReceiveMoney } from 'react-icons/gi';
 
 export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPostLoginForms, setUserInfo }) {
   const [entry, setEntry] = useState('')

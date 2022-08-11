@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import { AccountView, Button, CancelButton } from '../styles/Main.styled.components.js';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AccountView, Button, CancelButton } from '../styles/Main.styled.components.js';
 
 export default function WorkDetails({ viewInfo, setViewInfo, setWorkList, userID }) {
 

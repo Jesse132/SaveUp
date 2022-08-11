@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import {TiDeleteOutline} from 'react-icons/ti';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {TiDeleteOutline} from 'react-icons/ti';
 
 export default function Entry({ entry, userID, setUserInfo, entryUpdate, setEntryUpdate }) {
   const [del, setDel] = useState(false)

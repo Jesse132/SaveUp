@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
+import { Form } from '../../styles/Forms.styled.components.js'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Form } from '../../styles/Forms.styled.components.js'
 
 export default function UserForm({ setPreLoginForms }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [member, setMember] = useState("");
 
   let handleChange = (event, setState) => {
     setState(event.target.value);

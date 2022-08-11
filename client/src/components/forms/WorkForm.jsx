@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Form } from '../../styles/Forms.styled.components.js'
 import { EntryView, Button, CancelButton } from '../../styles/Main.styled.components.js';
 import { FcTodoList } from 'react-icons/fc';
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function WorkForm({ setPostLoginForms, userInfo, workUpdate, setWorkUpdate }) {
   const [work, setWork] = useState("");

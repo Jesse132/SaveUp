@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import { TransactionView, Button } from '../styles/Main.styled.components.js';
 import { useState } from 'react';
 import WorkEntry from './WorkEntry.jsx'
-import { TransactionView, Button } from '../styles/Main.styled.components.js';
 import WorkDetails from './WorkDetails.jsx'
 
 export default function WorkManager({ workList, setWorkList, setPostLoginForms, userID }) {
