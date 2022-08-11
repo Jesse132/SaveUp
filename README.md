@@ -1,5 +1,7 @@
 Welcome to SaveUp, a modern finance app that allows users to track their finances, and also submit/look for work. This project was completed in 2 days.
 
+Demo visible here: https://www.youtube.com/watch?v=I3Sfr0sU-4M&ab_channel=JesseFu
+
 To run this file, run the following: npm install, npm run server-dev, npm run client-dev
 
 Ideas for future development:
