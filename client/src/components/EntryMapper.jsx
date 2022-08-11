@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Entry from './Entry.jsx'
 import { TransactionView, Button } from '../styles/Main.styled.components.js';
 
-export default function EntryMapper({ entryList, setPostLoginForms }) {
+export default function EntryMapper({ entryList, userID, setUserInfo, setPostLoginForms, entryUpdate, setEntryUpdate }) {
   const [sortFilter, setSortFilter] = useState('');
   return (
     <TransactionView>
@@ -18,7 +18,7 @@ export default function EntryMapper({ entryList, setPostLoginForms }) {
           <option value='expense'>Expenses</option>
         </select>
         <Button className='containerBox' onClick={() => setPostLoginForms('')}>Back</Button>
-        <div style={{ padding: '20px 0px 0px 0px' }} className='mapper'>{entryList.slice().reverse().map((entry, index) => <Entry entry={entry} key={index} />)}</div>
+        <div style={{ padding: '20px 0px 0px 0px' }} className='mapper'>{entryList.slice().reverse().map((entry, index) => <Entry entry={entry} userID={userID} setUserInfo={setUserInfo} key={index} entryUpdate={entryUpdate} setEntryUpdate={setEntryUpdate} />)}</div>
       </div>
     </TransactionView>
   );

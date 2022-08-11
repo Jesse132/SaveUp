@@ -45,6 +45,7 @@
     "react-icons": "^4.4.0",
     "react-is": "^16.13.1",
     "react-move": "^6.5.0",
+    "react-spring": "^9.5.2",
     "styled-components": "^5.3.5"
   }
 }

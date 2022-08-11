@@ -48,11 +48,6 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-
-#container h1 {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
 `;
 
 export const EntryView = styled.div`
@@ -101,21 +96,25 @@ body {
 }
 
 .mapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content:center;
   flex-direction: column;
   width: 100%;
-  height: 900px;
+  height: 100%;
   overflow-y: auto;
+  margin-top: 20px;
 }
 
 .containerBox {
+  position: relative;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
 #container div {
+  position: relative;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -212,3 +211,16 @@ export const Work = styled.div`
   transform: translateY(-2px);
 }
 `;
+
+export const FormBackground = styled.div`
+top: 0;
+left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+

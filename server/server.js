@@ -22,6 +22,7 @@ router.put('/userGoal', controllers.addGoal);
 //entries
 router.get('/entries', controllers.getEntries);
 router.post('/entries', controllers.createEntry);
+router.put('/entries', controllers.putEntry);
 //work
 router.get('/work', controllers.getWork);
 router.post('/work', controllers.createWork);

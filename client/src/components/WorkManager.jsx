@@ -15,7 +15,7 @@ export default function WorkManager({ workList, setWorkList, setPostLoginForms, 
             <div>Here's what's currently available.</div>
             <Button onClick={() => setPostLoginForms('addWork')}> Add work </Button>
             <Button onClick={() => setPostLoginForms('')}>Back</Button>
-            <div style={{ padding: '30px 0px 0px 0px' }} className='mapper'>{workList.slice().reverse().map((work, index) => <WorkEntry work={work} key={index} setViewInfo={setViewInfo} />)}</div>
+            <div className='mapper'>{workList.slice().reverse().map((work, index) => <WorkEntry work={work} key={index} setViewInfo={setViewInfo} />)}</div>
           </div>
         </TransactionView>}
     </div>

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   email: String,
   balance: Number,
-  goal: Number,
+  goal: Number
 });
 
 const entrySchema = new mongoose.Schema({

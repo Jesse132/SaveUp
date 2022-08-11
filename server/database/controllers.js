@@ -50,12 +50,28 @@ exports.getEntries = (req, res) => {
 }
 
 exports.createEntry = (req, res) => {
+  const { owner, amount } = req.body
   return Entries.create(req.body)
     .then(() => {
-      return Users.findByIdAndUpdate(req.body.owner, { $inc: { balance: req.body.amount } }, { new: true }).exec()
+      return Users.findByIdAndUpdate(owner, { $inc: { balance: amount } }, { new: true }).exec()
         .then(data => res.status(200).send(data))
     })
     .catch(err => res.status(500).send(err))
+}
+
+exports.putEntry = (req, res) => {
+  const { _id, userID} = req.body
+  var amount;
+  return Entries.findOne({ _id: req.body._id }).exec()
+    .then((data) => {
+      amount = data.amount;
+          return Entries.findByIdAndDelete(_id).exec()
+            .then(() => {
+              return Users.findByIdAndUpdate(userID, { $inc: { balance: -amount } }, { new: true }).exec()
+                .then(data => res.status(200).send(data))
+            })
+    })
+    .catch(err => {res.status(500).send(err); console.log(err)})
 }
 
 //Work

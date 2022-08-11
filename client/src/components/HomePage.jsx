@@ -2,10 +2,26 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { AccountView, Button } from '../styles/Main.styled.components.js';
+import { useSpring, animated, config } from 'react-spring'
+
 import axios from 'axios';
 
 export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
   const [goal, setGoal] = useState("");
+
+  let welcome = () => {
+    const [flip, set] = useState(false)
+    const props = useSpring({
+      to: { opacity: 1 },
+      from: { opacity: 0 },
+      reset: false,
+      reverse: flip,
+      delay: 300,
+      config: config.molasses
+    })
+  
+    return <animated.h1 style={props}>Welcome back, {userInfo.name}.</animated.h1>
+  }
 
   let addGoal = (goal) => {
     axios.put('/userGoal', { _id: userInfo._id, goal: goal })
@@ -17,7 +33,6 @@ export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
 
   useEffect(() => {
     if (userInfo.balance >= userInfo.goal && userInfo.goal) {
-      window.alert("Congratulations! You've met your goal!");
       addGoal(0);
     }
   }, [userInfo])
@@ -25,8 +40,8 @@ export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
   return (
     <AccountView>
       <div className='container'>
-        <h1>Welcome back, {userInfo.name}.</h1>
-        <b className='containerBox'> Your current balance is:</b>
+        {welcome()}
+        <b className='containerBox'> Your current balance is: </b>
         {userInfo.balance >= 0 ? 
         <h1 style={{ color: '#32a83c' }}><strong>${userInfo.balance.toLocaleString()}</strong></h1> 
         : <h1 style={{ color: 'red' }}><strong>${userInfo.balance.toLocaleString()}</strong></h1>}
@@ -34,7 +49,7 @@ export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
         <div> {userInfo.goal ? `You've reached ${goalPercent}% of your goal so far.`
           :
           <div>
-            <div> Set a savings Goal. </div>
+            <div>Set a savings Goal.</div>
             <div>
               <input
                 type='number'
