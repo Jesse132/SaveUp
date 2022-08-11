@@ -27,22 +27,25 @@ export default function HomePage({ userInfo, setPostLoginForms, setUserInfo }) {
       <div className='container'>
         <h1>Welcome back, {userInfo.name}.</h1>
         <b className='containerBox'> Your current balance is:</b>
-        <h1 style={{ color: '#32a83c' }}><strong>${userInfo.balance.toLocaleString()}</strong></h1>
+        {userInfo.balance >= 0 ? 
+        <h1 style={{ color: '#32a83c' }}><strong>${userInfo.balance.toLocaleString()}</strong></h1> 
+        : <h1 style={{ color: 'red' }}><strong>${userInfo.balance.toLocaleString()}</strong></h1>}
         <h3 style={{ color: '#ff6f00' }}>{userInfo.goal ? `Current Goal: $${userInfo.goal.toLocaleString()}` : null}</h3>
-        <div className='containerBox'> {userInfo.goal ? `You've reached ${goalPercent}% of your goal so far.`
-          : <div className='containerBox'>
+        <div> {userInfo.goal ? `You've reached ${goalPercent}% of your goal so far.`
+          :
+          <div>
             <div> Set a savings Goal. </div>
             <div>
               <input
                 type='number'
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)} /></div>
-            <Button className='containerBox' onClick={() => addGoal(goal)}>Add Goal</Button>
+            <Button onClick={() => addGoal(goal)}>Add Goal</Button>
           </div>}
         </div>
-        <Button className='containerBox' onClick={() => { setPostLoginForms('transaction'); }}>Add transactions</Button>
-        <Button className='containerBox' onClick={() => { setPostLoginForms('viewTransaction'); }}>See transactions</Button>
-        <Button className='containerBox' onClick={() => { setPostLoginForms('work'); }}>Look for work</Button>
+        <Button onClick={() => { setPostLoginForms('transaction'); }}>Add transactions</Button>
+        <Button onClick={() => { setPostLoginForms('viewTransaction'); }}>See transactions</Button>
+        <Button onClick={() => { setPostLoginForms('work'); }}>Look for work</Button>
       </div>
     </AccountView >
   );

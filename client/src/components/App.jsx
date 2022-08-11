@@ -98,7 +98,7 @@ export default function App() {
             <div>
               <h3>Current members: {users.length}</h3>
               <div className='container'>
-                <div className='containerBox'>
+                <div>
                   <h1 className='containerBox'>Let's get started.</h1>
                 </div>
                 <FcMoneyTransfer size={70} className='containerBox' />

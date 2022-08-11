@@ -15,13 +15,13 @@ export default function WorkDetails({ viewInfo, setViewInfo, setWorkList, userID
   return (
     <AccountView>
       <div className='container'>
-        <h1 className='containerBox'>{viewInfo.work}</h1>
-        <h1 className='containerBox' style={{ color: 'green' }}><strong>${viewInfo.payment}</strong></h1>
-        <div className='containerBox'>{viewInfo.description}</div>
+        <h1>{viewInfo.work}</h1>
+        <h1 style={{ color: 'green' }}><strong>${viewInfo.payment}</strong></h1>
+        <div >{viewInfo.description}</div>
         <b className='containerBox'>{viewInfo.requestor}</b>
-        <div className='containerBox'>Call or Text: {viewInfo.contact}</div>
-        <Button className='containerBox' onClick={(e) => { putWork(e) }}>Accept</Button>
-        <CancelButton className='containerBox' onClick={() => setViewInfo('')} >Cancel</CancelButton>
+        <div >Call or Text: {viewInfo.contact}</div>
+        <Button onClick={(e) => { putWork(e) }}>Accept</Button>
+        <CancelButton onClick={() => setViewInfo('')} >Cancel</CancelButton>
       </div>
     </AccountView >
   )

@@ -43,9 +43,9 @@ export default function WorkForm({ setPostLoginForms, userInfo, workUpdate, setW
         }}
       >
         <h2 className='containerBox'>Add your posting here.</h2>
-        <div className='containerBox'><FcTodoList size={70} /></div>
-        <div className='containerBox'>
-          &emsp;&emsp;&emsp;Work:{" "}
+        <div><FcTodoList size={70} /></div>
+        <div>
+          &emsp;&emsp;&nbsp;&nbsp;Work:{" "}
           <input
             type="text"
             value={work}
@@ -53,7 +53,7 @@ export default function WorkForm({ setPostLoginForms, userInfo, workUpdate, setW
             required
           />
         </div>
-        <div className='containerBox'>
+        <div>
           Description:{" "}
           <input
             type="text"
@@ -62,18 +62,27 @@ export default function WorkForm({ setPostLoginForms, userInfo, workUpdate, setW
             required
           />
         </div>
-        <div className='containerBox'>
+        <div>
           &emsp;Payment:{" "}
           <input
-            type="number"
+            type="text"
             value={payment}
             onChange={(event) => handleChange(event, setPayment)}
             required
           />
         </div>
-        <div className='containerBox'>
-          <div className='containerBox'><Button type="submit">Submit</Button></div>
-          <div className='containerBox'><CancelButton onClick={() => setPostLoginForms("")}>Cancel</CancelButton></div>
+        <div>
+        &emsp;&emsp;Phone:{" "}
+          <input
+            type="text"
+            value={contact}
+            onChange={(event) => handleChange(event, setContact)}
+            required
+          />
+        </div>
+        <div>
+          <div><Button type="submit">Submit</Button></div>
+          <div><CancelButton onClick={() => setPostLoginForms("")}>Cancel</CancelButton></div>
         </div>
       </Form>
     </EntryView>

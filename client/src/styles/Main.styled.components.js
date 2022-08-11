@@ -18,6 +18,11 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+#container div {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 `;
 
 export const AccountView = styled.div`
@@ -35,6 +40,16 @@ body {
   position: absolute;
 }
 .containerBox {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#container div {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#container h1 {
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -62,6 +77,11 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+
+#container div {
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 `;
 
@@ -94,6 +114,11 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+#container div {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 `;
 
 export const Button = styled.button`
@@ -118,6 +143,8 @@ export const Button = styled.button`
   -webkit-user-select: none;
   touch-action: manipulation;
   padding: 10px 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 
 &:hover {
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
@@ -147,6 +174,8 @@ export const CancelButton = styled.button`
   -webkit-user-select: none;
   touch-action: manipulation;
   padding: 10px 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 
 &:hover {
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
@@ -183,16 +212,3 @@ export const Work = styled.div`
   transform: translateY(-2px);
 }
 `;
-
-export const FormBackground = styled.div`
-top: 0;
-left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-

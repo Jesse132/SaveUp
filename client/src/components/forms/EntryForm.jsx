@@ -32,12 +32,12 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
     <EntryView>
       <Form className='container' onSubmit={event => { handleSubmit(event); setPostLoginForms(''); setEntryUpdate(!entryUpdate) }} >
         <h2 className='containerBox'>Enter your transaction here.</h2>
-        <div className='containerBox'>Description: <input
+        <div >Description: <input
           type='text'
           value={description}
           onChange={event => handleChange(event, setDescription)}
           required /></div>
-        <div className='containerBox'>&emsp;&ensp;Amount: <input
+        <div >&emsp;&ensp;Amount: <input
           type='number'
           value={amount}
           onChange={event => handleChange(event, setAmount)}
@@ -46,17 +46,17 @@ export default function ListingForm({ entryUpdate, setEntryUpdate, userID, setPo
         <div className='containerRow'>
           <div style={{ padding: '0px 50px 0px 0px' }}>
             <div>Income</div>
-            <GiReceiveMoney size={50} />
+            <GiReceiveMoney size={50} color ={'#ffc107'} />
             <div><input name='selectOne' type='radio' onClick={() => setAmount(Math.abs(amount))} required></input></div>
           </div>
           <div style={{ padding: '0px 0px 0px 50px' }}>
             <div>Expense</div>
-            <GiPayMoney size={50} />
+            <GiPayMoney size={50} color ={'#ffc107'} />
             <div><input name='selectOne' type='radio' onClick={() => setAmount(-Math.abs(amount))}></input></div>
           </div>
         </div>
-        <Button className='containerBox' type='submit'>Submit</Button>
-        <CancelButton className='containerBox' onClick={() => setPostLoginForms('')}>Cancel</CancelButton>
+        <Button type='submit'>Submit</Button>
+        <CancelButton onClick={() => setPostLoginForms('')}>Cancel</CancelButton>
       </Form >
     </EntryView >
   )
